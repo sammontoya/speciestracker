@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @species.name %>
+</p>
+
+
+  <%= render('sightings/form') %>
+
+<p>Sightings:</p>
+
+<ul>
+  <% @species.sightings.each do |sighting| %>
+  <li>
+    <%= sighting.date %> |
+    <%= sighting.longitude %> |
+    <%= sighting.latitude %> |
+    <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a> |
+    <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a>
+    </li>
+    <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_species_path(@species) %> |
+<%= link_to 'Back', species_index_path %>

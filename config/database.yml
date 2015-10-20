@@ -1,0 +1,12 @@
+development:
+
+  adapter: postgresql
+
+  database: species_development
+
+
+test:
+
+  adapter: postgresql
+
+  database: species_test
